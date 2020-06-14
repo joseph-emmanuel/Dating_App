@@ -109,8 +109,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32"><a href="views/login.view.php">login</a></li>
+          <li class="w3-padding-16"><a href="views/register.view.php">register</a></li>
           <li class="w3-padding-16">Photography</li>
           <li class="w3-padding-16">5GB Storage</li>
           <li class="w3-padding-16">Mail Support</li>
