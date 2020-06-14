@@ -22,7 +22,7 @@ class User extends dbh{
         $results=$stmt->fetchAll();
         return $results;
     }
-    protected function setUser($fname,$lname,$email,$pwd,$ulevel){
+    public function setUser($fname,$lname,$email,$pwd,$ulevel){
         $sql="INSERT INTO `users` (`fname`, `lname`, `email`, `pwd`, `ulevel`)  values(?,?,?,?,?)";
         $stmt=$this->connect()->prepare($sql);
         $stmt->execute([$fname,$lname,$email,$pwd,$ulevel]);

@@ -16,6 +16,10 @@ include_once "../model/user.model.php";
     $newuser=new User($fname,$lname,$email,$password,$level);
     echo "br";
     print_r($newuser);
+    if($newuser->setUser($fname,$lname,$email,$password,$level)){
+        echo "sccessfully inserted the data";
+    }
+
 
 //             mysqli_stmt_bind_param($stmt,"s",$username);
 //             mysqli_stmt_execute($stmt);
