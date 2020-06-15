@@ -17,7 +17,18 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 </style>
 <body class="w3-black">
+<?php 
+session_start();
+if(isset($_SESSION["usn"])){
+echo "<h1 > Welcome : ".$_SESSION['usn']."</h1><br>";
+}
+else{
+  echo "<h1>Please login first</h1>";
+  }
+  
 
+?>
+<h1></h1>
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <!-- Avatar image in top left corner -->

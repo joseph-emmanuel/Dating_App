@@ -25,10 +25,10 @@
     </div>
     <ul class="nav-links">
         <li>
-            <a href="index.php">Home</a
+            <a href="../index.php">Home</a
             ></li>
         <li>
-            <a href="user_petitions.php">Petitions</a>
+            <a href="../index.php">Petitions</a>
         </li>
         <li class="id1">
             <a href="user_requests.php">Request</a>
@@ -40,7 +40,7 @@
             <a href="signup.php">register</a>
         </li>
         <li id="id2">
-            <a href="logout.php">logout</a>
+            <a href="../includes/logout.inc.php">logout</a>
         </li>
     </ul>
     <div class="burger">

@@ -6,8 +6,10 @@ $selected=new User();
 $user=$selected->selectUser($userName);
 // print_r($user);
 if(isset($user) and $user[0]['pwd']==$pwd and $user[0]['email']==$userName){
-    echo "sucessfully loged  in";
+    session_start();
+    $_SESSION['usn']=$userName;    
+    header("location: ../index.php?login=sucess");
 }
 else{
-    echo "not loged in";
+    header("location: ../index.php?login=failed");
 }
