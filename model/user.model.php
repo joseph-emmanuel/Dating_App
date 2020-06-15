@@ -6,8 +6,9 @@ class User extends dbh{
     public $email;
     public $pwd;
     public $ulevel;
-    public function __construct($fname,$lname,$email,$pwd,$ulevel){
-        // $this->uid=$uid;
+    public function __construct(){
+    }
+    public function defaultCon($fname,$lname,$email,$pwd,$ulevel){
         $this->fname=$fname;
         $this->lname=$lname;
         $this->email=$email;

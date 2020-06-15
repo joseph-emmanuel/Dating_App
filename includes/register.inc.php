@@ -13,7 +13,9 @@ include_once "../model/user.model.php";
     echo "level :".$level."<br>";
     echo "pwd :".$password."<br>";
     echo "rpwd :".$passwordRepeat."<br>";
-    $newuser=new User($fname,$lname,$email,$password,$level);
+    $newuser=new User();
+    $newuser->defaultCon($fname,$lname,$email,$password,$level);
+    // defaultCon
     echo "br";
     print_r($newuser);
     if($newuser->setUser($fname,$lname,$email,$password,$level)){

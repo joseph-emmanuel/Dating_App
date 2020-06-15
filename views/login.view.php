@@ -6,7 +6,7 @@ require "hdrftr/header.php"
     <h1>Please enter your credentials</h1>
 </div>
 <!-- delete -->
-<form action="includes/login.inc.php" method="post">
+<form action="../includes/login.inc.php" method="post">
     <h2><span class="entypo-login"></i></span> Login</h2>
     <button class="submit" name="login-submit"><span class="entypo-lock"></span></button>
 
