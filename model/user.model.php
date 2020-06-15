@@ -23,10 +23,13 @@ class User extends dbh{
         $results=$stmt->fetchAll();
         return $results;
     }
-    public function setUser($fname,$lname,$email,$pwd,$ulevel){
-        $sql="INSERT INTO `users` (`fname`, `lname`, `email`, `pwd`, `ulevel`)  values(?,?,?,?,?)";
+    public function setUser($fname,$lname,$email,$pwd,$ulevel,$img){
+        echo $img."this is the image";
+        // $sql="INSERT INTO `users` (`fname`, `lname`, `email`, `pwd`, `ulevel`,'img')  values(?,?,?,?,?,?)";
+        $sql="INSERT INTO `users` (`fname`, `lname`, `email`, `pwd`, `ulevel`,`img`)  values(?,?,?,?,?,?)";
         $stmt=$this->connect()->prepare($sql);
-        $stmt->execute([$fname,$lname,$email,$pwd,$ulevel]);
+        $ans=$stmt->execute([$fname,$lname,$email,$pwd,$ulevel,$img]);
+        return $ans;
         
     }
 }

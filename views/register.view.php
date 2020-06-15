@@ -6,7 +6,7 @@ require "hdrftr/header.php"
     <h1>Please enter your credentials</h1>
 </div>
 <!-- delete -->
-<form action="../includes/register.inc.php" method="post" class="form_sign">
+<form action="../includes/register.inc.php" method="post" class="form_sign" enctype="multipart/form-data">
     <div class="container">
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
@@ -30,6 +30,9 @@ require "hdrftr/header.php"
         <label for="psw-repeat"><b>Repeat Password</b></label>
         <input type="password" placeholder="Repeat Password" name="pwd-repeat" required>
         <hr>
+        <input type="hidden" name="size" value="1000000">
+  	    <div>
+  	    <input type="file" name="image">
         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
         <button type="submit"  name="signup-submit" class="registerbtn">Register</button>

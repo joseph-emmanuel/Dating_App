@@ -20,11 +20,18 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <?php 
 session_start();
 if(isset($_SESSION["usn"])){
-echo "<h1 > Welcome : ".$_SESSION['usn']."</h1><br>";
+  
+    echo "<h1 > Welcome : ".$_SESSION['usn']."</h1><br>";
+    // echo "<h1 > Welcome : ".$_SESSION['test']."</h1><br>";
+  
+  
 }
 else{
-  echo "<h1>Please login first</h1>";
-  }
+    if (isset($_GET["logout"])) {
+        echo "<h1 >sucessfully logged out</h1><br>";
+    }
+        echo "<h1>Please login first</h1>";
+}
   
 
 ?>

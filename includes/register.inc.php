@@ -6,6 +6,7 @@ include_once "../model/user.model.php";
     $level= $_POST['level'];
     $password= $_POST['pwd'];
     $passwordRepeat= $_POST['pwd-repeat'];
+    $image = $_FILES['image']['name'];
 
     echo "first Name :".$fname."<br>";
     echo "last Name :".$lname."<br>";
@@ -13,12 +14,16 @@ include_once "../model/user.model.php";
     echo "level :".$level."<br>";
     echo "pwd :".$password."<br>";
     echo "rpwd :".$passwordRepeat."<br>";
+    echo "Image :".$image."<br>";
+
     $newuser=new User();
     $newuser->defaultCon($fname,$lname,$email,$password,$level);
     // defaultCon
     echo "br";
     print_r($newuser);
-    if($newuser->setUser($fname,$lname,$email,$password,$level)){
+    echo "<br>";
+    echo $_FILES['image']['name'];
+    if($newuser->setUser($fname,$lname,$email,$password,$level,$image)){
         echo "sccessfully inserted the data";
     }
 
