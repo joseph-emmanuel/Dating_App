@@ -3,12 +3,13 @@ session_start();
 include_once "../model/user.model.php";
 include_once "../model/fav.model.php";
 $userName=$_SESSION['usn'];
+// $uid=$_SESSION['uid'];
 $selected=new User();
 $user=$selected->selectUser($userName);
 print_r($user);
 $allUsers=$selected->selectAllUser($userName);
 $fav=new Fav();
-$favlist=$fav->selectAllfavs($userName);
+$favlist=$fav->selectAllfavs($user[0]['uid']);
 ?>
 
 
@@ -27,6 +28,18 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
   height:106px;
   width:106px;
 }
+.w3-dropdown-content w3-card-4 w3-bar-block{
+  
+  margin:4px, 4px; 
+                padding:4px; 
+                background-color: green; 
+                width: 500px; 
+                height: 110px; 
+                overflow-x: hidden; 
+                overflow-y: auto; 
+                text-align:justify; 
+            
+}
 </style>
 <body class="w3-theme-l5">
 
@@ -41,7 +54,12 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
     <?php 
     foreach($favlist as $x){
-      echo "<a href='#' class='w3-bar-item w3-button'>".$x['femail']."</a>";
+      echo $x['femail'];
+      echo "<button type='button'";
+      echo "onclick=window.location=";
+      echo "'../includes/removefav.inc.php?fname=".$x['femail']."'";
+      echo " class='w3-button w3-theme'><i class='fa fa-trash'></i> Remove from fav </button> ";
+      echo "<hr>";
     }  
     
     

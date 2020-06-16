@@ -3,10 +3,9 @@ include_once "dbh.php";
 class Fav extends dbh{
    
     public function selectAllfavs($uname){
-        $sql="select * from fav where uemail=?";
+        $sql="select * from users full join fav where uid=?";
         $stmt=$this->connect()->prepare($sql);
         $stmt->execute([$uname]);
-
         $results=$stmt->fetchAll();
         return $results;
     }
@@ -18,5 +17,14 @@ class Fav extends dbh{
         $ans=$stmt->execute([$uname,$fname]);
         return $ans;
     }
+    public function removeFavs($uname,$fname){
+        
+        // $sql="INSERT INTO `users` (`fname`, `lname`, `email`, `pwd`, `ulevel`,'img')  values(?,?,?,?,?,?)";
+        $sql="DELETE FROM fav WHERE uemail=? and femail=?";
+        $stmt=$this->connect()->prepare($sql);
+        $ans=$stmt->execute([$uname,$fname]);
+        return $ans;
+    }
+    
     
 }
