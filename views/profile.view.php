@@ -197,11 +197,14 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
                 echo "<img src=";
                 echo "../images/".$x['img'];
                 echo " class='w3-circle' >";
-                echo "<button  type='button' class='w3-button w3-theme'><i class='fa fa-pencil'></i> Wink </button> ";
+                echo "<button type='button'";
+                echo "onclick=window.location=";
+                echo "'../includes/wink.inc.php?fname=".$x['email']."'";
+                echo " class='w3-button w3-theme'><i class='fa fa-eye'></i> Wink </button> ";
                 echo "<button type='button'";
                 echo "onclick=window.location=";
                 echo "'../includes/addfav.inc.php?fname=".$x['email']."'";
-                echo " class='w3-button w3-theme'><i class='fa fa-eye'></i> Add to fav </button> ";
+                echo " class='w3-button w3-theme'><i class='fa fa-plus'></i> Add to fav </button> ";
                 echo "<hr>";
                 
                 // onclick="location.href='index.html'"
