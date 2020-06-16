@@ -26,6 +26,13 @@ include_once "../model/user.model.php";
     if($newuser->setUser($fname,$lname,$email,$password,$level,$image)){
         echo "sccessfully inserted the data";
     }
+    $target = "../images/".basename($image);
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+        header("location: ../views/profile.view.php");
+}
+else{
+    header("location: ../index.php?login=failed");
+}
 
 
 //             mysqli_stmt_bind_param($stmt,"s",$username);
