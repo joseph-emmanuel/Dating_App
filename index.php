@@ -17,24 +17,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
 </style>
 <body class="w3-black">
-<?php 
-session_start();
-if(isset($_SESSION["usn"])){
-  
-    echo "<h1 > Welcome : ".$_SESSION['usn']."</h1><br>";
-    // echo "<h1 > Welcome : ".$_SESSION['test']."</h1><br>";
-  
-  
-}
-else{
-    if (isset($_GET["logout"])) {
-        echo "<h1 >sucessfully logged out</h1><br>";
-    }
-        echo "<h1>Please login first</h1>";
-}
-  
 
-?>
 <h1></h1>
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
@@ -52,9 +35,9 @@ else{
   <i class="fa fa-user-plus w3-xxlarge"></i>
     <p>REGISTER</p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
+  <a href="#price" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <i class="fa fa-usd w3-xxlarge"></i>
+    <p>Price</p>
   </a>
 </nav>
 
@@ -79,149 +62,82 @@ else{
 
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-light-grey">My Name</h2>
+    <h2 class="w3-text-light-grey">Please enter your credentials</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-    <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Photography</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-    </div>
-    <p class="w3-wide">Web Design</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-    </div>
-    <p class="w3-wide">Photoshop</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br>
-    
-    <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">11+</span><br>
-        Partners
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">55+</span><br>
-        Projects Done
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">89+</span><br>
-        Happy Clients
-      </div>
-      <div class="w3-quarter w3-section">
-        <span class="w3-xlarge">150+</span><br>
-        Meetings
-      </div>
+    <form action="includes/login.inc.php" method="post">
+
+    <input type="text" name="mailuid" class="w3-input w3-padding-16" placeholder="Email"/><br>
+
+    <input type="password" name="pwd" class="w3-input w3-padding-16"  placeholder="password"/><br>
+    <!-- <button name="login-submit" class="w3-button w3-light-grey w3-padding-large"><span class="entypo-lock"></span> login</button><br> -->
+    <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> Login
+        </button>
+</form> 
+
+  <div class="w3-padding-64 w3-content" id="photos">
+    <form action="includes/register.inc.php" method="post" class="form_sign" enctype="multipart/form-data">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <input type="text"class="w3-input w3-padding-16" placeholder="Enter First Name" name="fname" required><br>
+        <input type="text" class="w3-input w3-padding-16" placeholder="Enter Last Name" name="lname" required><br>
+        <input type="text" class="w3-input w3-padding-16"placeholder="Enter Email" name="email" required><br>
+        <select name="level" class="w3-input w3-padding-16" id="level">
+        <option class="w3-input w3-padding-16" value="1">invited</option>
+        <option class="w3-input w3-padding-16" value="2">regular</option>
+        <option class="w3-input w3-padding-16" value="3">premium</option>
+        </select><br>
+        <input type="password" class="w3-input w3-padding-16" placeholder="Enter Password" name="pwd" required><br>
+        <input type="password" class="w3-input w3-padding-16" placeholder="Repeat Password" name="pwd-repeat" required><br>
+        <hr>
+        <input type="hidden" name="size" value="1000000">
+  	    <div>
+        <label for=" ">Please choose a profile pic : </label>
+  	    <input type="file" name="image">
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+        <button type="submit"  name="signup-submit" class="registerbtn">Register</button>
     </div>
 
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
-    </button>
-    
-    <!-- Grid for pricing tables -->
-    <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
+    <div class="container signin">
+        <p>Already have an account? <a href="#about">Sign in</a>.</p>
+    </div>
+</form>
+  <!-- End Portfolio Section -->
+  </div>
+
+      <!-- Grid for pricing tables -->
+      <h3 class="w3-padding-16 w3-text-light-grey" id="price">Our Price</h3>
     <div class="w3-row-padding" style="margin:0 -16px">
       <div class="w3-half w3-margin-bottom">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32"><a href="views/login.view.php">login</a></li>
-          <li class="w3-padding-16"><a href="views/register.view.php">register</a></li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">5GB Storage</li>
-          <li class="w3-padding-16">Mail Support</li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32"><a href="views/login.view.php">Regular</a></li>
+          <li class="w3-padding-16">10 Favrites</li>
+          <li class="w3-padding-16">10 winks </li>
           <li class="w3-padding-16">
             <h2>$ 10</h2>
             <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
           </li>
         </ul>
       </div>
 
       <div class="w3-half">
         <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">50GB Storage</li>
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Premium</li>
+          <li class="w3-padding-16">Unlimited Fvorites</li>
+          <li class="w3-padding-16">Unlimited Winks</li>
+          <li class="w3-padding-16">Invite others</li>
           <li class="w3-padding-16">Endless Support</li>
           <li class="w3-padding-16">
             <h2>$ 25</h2>
             <span class="w3-opacity">per month</span>
           </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
         </ul>
       </div>
     <!-- End Grid/Pricing tables -->
     </div>
-    
-    <!-- Testimonials -->
-    <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>  
-    <img src="/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-    <p>John Doe saved us from a web disaster.</p><br>
-    
-    <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-    <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-    <p>No one is better than John Doe.</p>
-  <!-- End About Section -->
-  </div>
-  
-  <!-- Portfolio Section -->
-  <div class="w3-padding-64 w3-content" id="photos">
-    <h2 class="w3-text-light-grey">My Photos</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <!-- Grid for photos -->
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/rocks.jpg" style="width:100%">
-        <img src="/w3images/sailboat.jpg" style="width:100%">
-      </div>
-
-      <div class="w3-half">
-        <img src="/w3images/underwater.jpg" style="width:100%">
-        <img src="/w3images/chef.jpg" style="width:100%">
-        <img src="/w3images/wedding.jpg" style="width:100%">
-        <img src="/w3images/p6.jpg" style="width:100%">
-      </div>
-    <!-- End photo grid -->
-    </div>
-  <!-- End Portfolio Section -->
-  </div>
-
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Montreal, Canada</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: support@mather.com</p>
-    </div><br>
-    <p>Let's get in touch. Send me a message:</p>
-
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
-  <!-- End Contact Section -->
-  </div>
   
     <!-- Footer -->
   <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
