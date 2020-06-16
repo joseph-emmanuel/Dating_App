@@ -6,7 +6,7 @@ $selected=new User();
 $user=$selected->selectUser($userName);
 print_r($user);
 
-
+$allUsers=$selected->selectAllUser($userName);
 ?>
 
 
@@ -21,6 +21,10 @@ print_r($user);
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+.w3-circle{
+  height:106px;
+  width:106px;
+}
 </style>
 <body class="w3-theme-l5">
 
@@ -151,9 +155,32 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Social Media template by w3.css</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Status: Feeling Blue</p>
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Post</button> 
+              <h6 class="w3-opacity">Users</h6>
+              <p contenteditable="true" class="w3-border w3-padding">Search users here</p>
+              
+              <?php 
+              foreach($allUsers as $x){
+                echo $x['fname']." ".$x['lname']."<br>";
+                echo "<br>";
+                echo "<img src=";
+                echo "../images/".$x['img'];
+                echo " class='w3-circle' >";
+                echo "<button type='button' class='w3-button w3-theme'><i class='fa fa-pencil'></i> Add to fav </button> ";
+                echo "<button type='button' class='w3-button w3-theme'><i class='fa fa-eye'></i> Winnk </button> ";
+                echo "<hr>";
+
+                echo "<br>";
+                // echo "style=";
+                // echo "'height:106px;width:106px'";
+                
+                
+                
+              }
+              
+              ?>
+              
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i> Add to fav </button> 
+              <button type="button" class="w3-button w3-theme"><i class="fa fa-eye"></i> Winnk</button> 
             </div>
           </div>
         </div>

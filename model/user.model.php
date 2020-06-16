@@ -15,6 +15,14 @@ class User extends dbh{
         $this->pwd=$pwd;
         $this->ulevel=$ulevel;
     }
+    public function selectAllUser($mail){
+        $sql="select * from users where email!=?";
+        $stmt=$this->connect()->prepare($sql);
+        $stmt->execute([$mail]);
+
+        $results=$stmt->fetchAll();
+        return $results;
+    }
     public function selectUser($mail){
         $sql="select * from users where email=?";
         $stmt=$this->connect()->prepare($sql);
