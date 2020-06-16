@@ -1,12 +1,14 @@
 <?php 
 session_start();
 include_once "../model/user.model.php";
+include_once "../model/fav.model.php";
 $userName=$_SESSION['usn'];
 $selected=new User();
 $user=$selected->selectUser($userName);
 print_r($user);
-
 $allUsers=$selected->selectAllUser($userName);
+$fav=new Fav();
+$favlist=$fav->selectAllfavs($userName);
 ?>
 
 
@@ -33,7 +35,19 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
  <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="#" background-color:#fff class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News"><i class="fa fa-globe"></i></a>
+  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Favorites"><i class="fa fa-gratipay"></i></a> -->
+  <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-gratipay"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo sizeof($favlist)?></span></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+    <?php 
+    foreach($favlist as $x){
+      echo "<a href='#' class='w3-bar-item w3-button'>".$x['femail']."</a>";
+    }  
+    
+    
+    ?>
+    </div>
+  </div>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
   <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
   <div class="w3-dropdown-hover w3-hide-small">

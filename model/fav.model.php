@@ -2,10 +2,10 @@
 include_once "dbh.php";
 class Fav extends dbh{
    
-    public function selectAllUser($mail){
-        $sql="select * from users where email!=?";
+    public function selectAllfavs($uname){
+        $sql="select * from fav where uemail=?";
         $stmt=$this->connect()->prepare($sql);
-        $stmt->execute([$mail]);
+        $stmt->execute([$uname]);
 
         $results=$stmt->fetchAll();
         return $results;
