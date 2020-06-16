@@ -156,25 +156,24 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
               <h6 class="w3-opacity">Users</h6>
-              <p contenteditable="true" class="w3-border w3-padding">Search users here</p>
-              
+              <p contenteditable="true" class="w3-border w3-padding">Search users here</p>             
               <?php 
               foreach($allUsers as $x){
+                echo "_______________".$x['email'];
                 echo $x['fname']." ".$x['lname']."<br>";
                 echo "<br>";
                 echo "<img src=";
                 echo "../images/".$x['img'];
                 echo " class='w3-circle' >";
-                echo "<button type='button' class='w3-button w3-theme'><i class='fa fa-pencil'></i> Add to fav </button> ";
-                echo "<button type='button' class='w3-button w3-theme'><i class='fa fa-eye'></i> Winnk </button> ";
+                echo "<button  type='button' class='w3-button w3-theme'><i class='fa fa-pencil'></i> Wink </button> ";
+                echo "<button type='button'";
+                echo "onclick=window.location=";
+                echo "'../includes/addfav.inc.php?fname=".$x['email']."'";
+                echo " class='w3-button w3-theme'><i class='fa fa-eye'></i> Add to fav </button> ";
                 echo "<hr>";
-
-                echo "<br>";
-                // echo "style=";
-                // echo "'height:106px;width:106px'";
                 
-                
-                
+                // onclick="location.href='index.html'"
+                echo "<br>";                
               }
               
               ?>
@@ -309,6 +308,13 @@ function openNav() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
+}
+function myFunction(x) {
+  
+  //$_SESSION['fname']=x;
+  <?php
+  location.replace("../includes/addfav.inc.php");
+  ?>
 }
 </script>
 
