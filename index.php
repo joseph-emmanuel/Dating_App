@@ -15,6 +15,22 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 #main {margin-left: 120px}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+
+@font-face{
+    font-family: "p1";
+    src: url("views/assets/fonts/28 days later.ttf");
+}
+.ll{
+  font-family:p1;
+  color:yellow;
+}
+.lm{
+  
+  font-family:p1;
+  color:white;
+
+}
 </style>
 <body class="w3-black">
 
@@ -55,8 +71,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Matcher</h1>
-    <p>Photographer and Web Designer.</p>
+    <h1 class="w3-jumbo"><span class="w3-hide-small"><span  class="ll">LOVE</span> <span class="lm">FINDER</span> </h1>
+    <p style="font-size: 25px;"> <span class="lm">Find your </span> <span class="ll">partner</span> <span class="lm">here</span></p>
     <img src="img/b1.jpg" alt="boy" class="w3-image" width="900" height="600">
   </header>
 
@@ -147,7 +163,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <i class="fa fa-pinterest-p w3-hover-opacity"></i>
     <i class="fa fa-twitter w3-hover-opacity"></i>
     <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    <!-- <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p> -->
   <!-- End footer -->
   </footer>
 
