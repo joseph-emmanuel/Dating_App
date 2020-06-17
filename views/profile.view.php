@@ -2,6 +2,7 @@
 session_start();
 include_once "../model/user.model.php";
 include_once "../model/fav.model.php";
+include_once "../model/wink.model.php";
 $userName=$_SESSION['usn'];
 // $uid=$_SESSION['uid'];
 $selected=new User();
@@ -10,12 +11,14 @@ print_r($user);
 $allUsers=$selected->selectAllUser($userName);
 $fav=new Fav();
 $favlist=$fav->selectAllfavs($user[0]['uid']);
+$wink=new Wink();
+$winklist=$wink->selectWinks($user[0]['uid']);
 ?>
 
 
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Matcher</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -60,20 +63,30 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
       echo "'../includes/removefav.inc.php?fname=".$x['femail']."'";
       echo " class='w3-button w3-theme'><i class='fa fa-trash'></i> Remove from fav </button> ";
       echo "<hr>";
-    }  
-    
-    
+    } 
     ?>
     </div>
   </div>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-user"></i></a>
-  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><i class="fa fa-cogs"></i></a>
+  <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><i class="fa fa-envelope"></i></a> -->
   <div class="w3-dropdown-hover w3-hide-small">
-    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-bell"></i><span class="w3-badge w3-right w3-small w3-green">3</span></button>     
+    <button class="w3-button w3-padding-large" title="Notifications"><i class="fa fa-eye"></i><span class="w3-badge w3-right w3-small w3-green"><?php echo sizeof($winklist)?></span></button>     
     <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
-      <a href="#" class="w3-bar-item w3-button">One new friend request</a>
-      <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
-      <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
+    <?php 
+    foreach($winklist as $x){
+      echo $x['remail'];
+      echo "<br>";
+      echo "<button type='button'";
+      echo "onclick=window.location=";
+      echo "'../includes/setwink.inc.php?fname=".$x['remail']."'";
+      echo " class='w3-button w3-theme'><i class='fa fa-eye'></i> wink Back </button> ";
+      echo "<button type='button'";
+      echo "onclick=window.location=";
+      echo "'../includes/removewink.inc.php?fname=".$x['wid']."'";
+      echo " class='w3-button w3-theme'><i class='fa fa-trash'></i> remove</button> ";
+      echo "<hr>";
+    } 
+    ?>
     </div>
   </div>
   <a href="../includes/logout.inc.php" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
@@ -191,7 +204,6 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
               <p contenteditable="true" class="w3-border w3-padding">Search users here</p>             
               <?php 
               foreach($allUsers as $x){
-                echo "_______________".$x['email'];
                 echo $x['fname']." ".$x['lname']."<br>";
                 echo "<br>";
                 echo "<img src=";
