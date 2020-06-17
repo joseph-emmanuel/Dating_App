@@ -6,5 +6,4 @@ $fname=$_GET['fname'];
 $wink=new Wink();
 $wink->setWink($user,$fname);
 header("location: ../views/profile.view.php");
-header("location: ../views/profile.view.php");
 ?>

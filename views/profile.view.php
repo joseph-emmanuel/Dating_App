@@ -10,9 +10,9 @@ $user=$selected->selectUser($userName);
 print_r($user);
 $allUsers=$selected->selectAllUser($userName);
 $fav=new Fav();
-$favlist=$fav->selectAllfavs($user[0]['uid']);
+$favlist=$fav->selectAllfavs($user[0]['uid'],$userName);
 $wink=new Wink();
-$winklist=$wink->selectWinks($user[0]['uid']);
+$winklist=$wink->selectWinks($userName);
 ?>
 
 
@@ -74,11 +74,11 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
     <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
     <?php 
     foreach($winklist as $x){
-      echo $x['remail'];
+      echo $x['semail'];
       echo "<br>";
       echo "<button type='button'";
       echo "onclick=window.location=";
-      echo "'../includes/setwink.inc.php?fname=".$x['remail']."'";
+      echo "'../includes/setwink.inc.php?fname=".$x['semail']."'";
       echo " class='w3-button w3-theme'><i class='fa fa-eye'></i> wink Back </button> ";
       echo "<button type='button'";
       echo "onclick=window.location=";
@@ -115,6 +115,9 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
          <h4 class="w3-center"><?php echo $user[0]['fname']." ".$user[0]['lname'] ?></h4>
          <p class="w3-center"><img <?php 
       	echo "src='../images/".$user[0]['img']."'"?> class="w3-circle" style="height:106px;width:106px" alt="Avatar"></p>
+        <form action="update.view.php"method="post">
+        <button class="w3-button w3-theme" type="submit">Update Profile</button>
+        </form>
          <hr>
          
         </div>
@@ -211,7 +214,7 @@ html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
                 echo " class='w3-circle' >";
                 echo "<button type='button'";
                 echo "onclick=window.location=";
-                echo "'../includes/wink.inc.php?fname=".$x['email']."'";
+                echo "'../includes/setwink.inc.php?fname=".$x['email']."'";
                 echo " class='w3-button w3-theme'><i class='fa fa-eye'></i> Wink </button> ";
                 echo "<button type='button'";
                 echo "onclick=window.location=";

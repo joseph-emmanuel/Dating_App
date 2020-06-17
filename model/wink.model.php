@@ -3,7 +3,7 @@ include_once "dbh.php";
 class Wink extends dbh{
    
     public function selectWinks($uname){
-        $sql="select * from users full join wink where uid=?";
+        $sql="select * from  wink where remail=?";
         $stmt=$this->connect()->prepare($sql);
         $stmt->execute([$uname]);
         $results=$stmt->fetchAll();

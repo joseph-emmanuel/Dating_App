@@ -40,4 +40,12 @@ class User extends dbh{
         return $ans;
         
     }
-}
+    public function updateuser($fname,$lname,$email,$pwd,$ulevel,$img,$uid){
+        // $sql="INSERT INTO `users` (`fname`, `lname`, `email`, `pwd`, `ulevel`,'img')  values(?,?,?,?,?,?)";
+        $sql="update users set fname=?,lname=?,email=?,pwd=?,ulevel=?,img=? where uid=?" ;
+        $stmt=$this->connect()->prepare($sql);
+        $ans=$stmt->execute([$fname,$lname,$email,$pwd,$ulevel,$img,$uid]);
+        return $ans;
+        
+    }
+    }

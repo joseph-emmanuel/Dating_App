@@ -90,7 +90,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
         <option class="w3-input w3-padding-16" value="3">premium</option>
         </select><br>
         <input type="password" class="w3-input w3-padding-16" placeholder="Enter Password" name="pwd" required><br>
-        <input type="password" class="w3-input w3-padding-16" placeholder="Repeat Password" name="pwd-repeat" required><br>
+        <!-- <input type="password" class="w3-input w3-padding-16" placeholder="Repeat Password" name="pwd-repeat" required><br> -->
         <hr>
         <input type="hidden" name="size" value="1000000">
   	    <div>
