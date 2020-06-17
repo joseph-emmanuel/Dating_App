@@ -46,7 +46,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 
 
-
+  <div class="w3-padding-64 w3-content" id="photos">
+    <form action="../includes/updateuser.inc.php" method="post" class="form_sign" enctype="multipart/form-data">
+    <div class="container">
     
         <h1>Update</h1>
         <p>Please fill in this form to update your profile.</p>
